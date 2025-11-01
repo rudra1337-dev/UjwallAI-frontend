@@ -1,0 +1,61 @@
+/* 🩵 History Page Design — Neon Cyber Dark Style */
+
+.history-card {
+  background: rgba(10, 15, 25, 0.85);
+  border: 1px solid #00ffee55;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00ffee33;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.history-card:hover {
+  transform: translateY(-8px) scale(1.05) rotateX(5deg);
+  box-shadow: 0 0 25px #00ffeeaa;
+  border-color: #00ffeeaa;
+  background: linear-gradient(145deg, rgba(0, 40, 50, 0.9), rgba(0, 0, 0, 0.9));
+}
+
+.card-content {
+  width: 100%;
+  text-align: left;
+}
+
+.text-glow {
+  color: #00ffee;
+  text-shadow: 0 0 8px #00ffee, 0 0 15px #00ffee;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Responsive text and spacing */
+@media (max-width: 992px) {
+  .history-card {
+    min-height: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .history-card {
+    min-height: 130px;
+  }
+  .text-glow {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .history-card {
+    min-height: 120px;
+    border-radius: 10px;
+  }
+  .text-glow {
+    font-size: 0.85rem;
+  }
+}

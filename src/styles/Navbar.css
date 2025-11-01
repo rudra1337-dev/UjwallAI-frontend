@@ -1,0 +1,85 @@
+/* 🌌 Solar Navbar — Futuristic Dark Theme */
+
+.solar-navbar {
+  background: rgba(5, 10, 20, 0.9);
+  border-bottom: 1px solid #00ffee55;
+  box-shadow: 0 0 20px #00ffee33;
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🪐 Brand Name */
+.glow-brand {
+  color: #00ffee !important;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px #00ffee, 0 0 25px #00ffee;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.glow-brand:hover {
+  color: #00ffcc !important;
+  transform: scale(1.05);
+  text-shadow: 0 0 20px #00ffee, 0 0 40px #00ffee;
+}
+
+/* 🌠 Nav Links */
+.nav-glow {
+  color: #ffffffcc !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.nav-glow:hover {
+  color: #00ffee !important;
+  text-shadow: 0 0 10px #00ffee, 0 0 25px #00ffee;
+}
+
+/* Small underline animation on hover */
+.nav-glow::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00ffee;
+  transition: width 0.3s ease;
+}
+
+.nav-glow:hover::after {
+  width: 100%;
+}
+
+/* 🔹 Offcanvas Customization */
+.offcanvas {
+  background: rgba(10, 15, 25, 0.95) !important;
+  box-shadow: 0 0 20px #00ffee33;
+}
+
+.offcanvas-header h5 {
+  color: #00ffee;
+  text-shadow: 0 0 10px #00ffee;
+}
+
+.offcanvas-body .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.offcanvas-body .nav-link:hover {
+  color: #00ffee !important;
+  text-shadow: 0 0 8px #00ffee;
+}
+
+/* 🧠 Responsive */
+@media (max-width: 768px) {
+  .glow-brand {
+    font-size: 1.1rem;
+  }
+}
