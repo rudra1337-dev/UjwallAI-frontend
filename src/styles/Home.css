@@ -1,0 +1,150 @@
+/* 🌌 Solar Dashboard Dark Theme */
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+  background-color: #000;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Main container */
+.dashboard-bg {
+  position: relative;
+  min-height: 100vh;
+  color: white;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 30%, #00111a 0%, #000 80%);
+}
+
+/* Canvas background */
+.three-bg {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 👈 keeps it behind content */
+}
+
+/* Content layer */
+.content-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+/* Title glow */
+.dashboard-title {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #00ffee;
+  text-shadow: 0 0 10px #00ffee, 0 0 30px #00ffee;
+}
+
+/* Stat cards */
+.stat-card {
+  background: rgba(20, 20, 30, 0.9);
+  border: 1px solid #00ffee55;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #00ffee22;
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #00ffee66;
+}
+
+/* Text glow */
+.glow {
+  color: #00ffee;
+  text-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+}
+
+/* Suggestion box */
+.suggestion-box {
+  border: 2px solid #00ff99;
+  background: rgba(0, 255, 153, 0.1);
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  padding: 15px;
+  z-index: 2;
+  box-shadow: 0 0 15px #00ff9955;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  margin: 0 auto;
+}
+
+/* Chart layout */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  z-index: 2;
+  padding-bottom: 100px;
+}
+
+.chart-box {
+  background: rgba(15, 15, 25, 0.9);
+  border: 1px solid #00ffee44;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #00ffee33;
+  padding: 20px;
+  z-index: 2;
+}
+
+/* Animated aurora background */
+.dashboard-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #001f33, #000, #002244);
+  background-size: 300% 300%;
+  animation: aurora 12s ease infinite;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stat-card {
+    padding: 15px;
+  }
+  .chart-box {
+    padding: 15px;
+  }
+}
+
+
+
+
+
+
+/* ⚠️ Alert Box */
+.alert-box {
+  border: 2px solid #ff4444;
+  background: rgba(255, 68, 68, 0.1);
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  padding: 15px;
+  z-index: 2;
+  box-shadow: 0 0 15px #ff444455;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  margin: 0 auto;
+  color: #ff6666;
+  text-shadow: 0 0 8px #ff0000;
+}
