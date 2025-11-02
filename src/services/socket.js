@@ -1,7 +1,6 @@
-// ⚡ src/services/socket.js
+// src/services/socket.js
 import { io } from "socket.io-client";
-
-const URL = "http://localhost:5000"; // backend URL
+const URL = "http://localhost:5000";
 export const socket = io(URL, { autoConnect: true });
 
 socket.on("connect", () => {

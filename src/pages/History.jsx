@@ -54,7 +54,7 @@ export default function History() {
                       🕒 {new Date(item.timestamp).toLocaleString()}
                     </h5>
                     <p className="m-0 text-light small">
-                      ⚡ <strong>Power:</strong> {item.power} W
+                      ⚡ <strong>Power:</strong> {item.power} µW
                     </p>
                     <p className="m-0 text-light small">
                       💡 <strong>Efficiency:</strong> {item.efficiency}%

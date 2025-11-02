@@ -1,4 +1,4 @@
-// src/pages/HistoryDetails.jsx
+// ✅ src/pages/HistoryDetails.jsx
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -36,6 +36,15 @@ export default function HistoryDetails() {
       </div>
     );
 
+  // ✅ Units Map (matching Home.jsx)
+  const units = {
+    angle: "°",
+    voltage: "mV",
+    current: "mA",
+    temperature: "°C",
+    power: "µW",
+  };
+
   return (
     <div className="dashboard-bg">
       {/* 🌌 3D Star Background */}
@@ -56,8 +65,7 @@ export default function HistoryDetails() {
           🌞 Recorded Solar Data Details
         </motion.h1>
 
-
-        {/* 🔹 Stats Section */}
+        {/* 🔹 Stats Section (Voltage, Current, Power, etc.) */}
         <div className="row justify-content-center g-4 mb-5">
           {["angle", "voltage", "current", "temperature", "power"].map(
             (key, i) => (
@@ -68,29 +76,24 @@ export default function HistoryDetails() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.3 }}
               >
-                <h5 className="fw-bold">{key.toUpperCase()}</h5>
+                <h5 className="fw-bold">
+                  {key === "angle" ? "TILTED-ANGLE" : key.toUpperCase()}
+                </h5>
+
                 <h2 className="glow">
                   {record[key]}{" "}
-                  {key === "angle"
-                    ? "°"
-                    : key === "voltage"
-                    ? "V"
-                    : key === "current"
-                    ? "A"
-                    : key === "temperature"
-                    ? "°C"
-                    : key === "power"
-                    ? "W"
-                    : ""}
+                  <span style={{ fontSize: "0.8rem", color: "#00ffcc" }}>
+                    {units[key]}
+                  </span>
                 </h2>
               </motion.div>
             )
           )}
         </div>
 
-        {/* 🔹 Circular Progress Bars */}
+        {/* 🔹 Circular Progress Bars (Dust, Efficiency, Intensity) */}
         <div className="row justify-content-center g-4 mb-5">
-          {["dust", "efficiency", "intensity"].map((key, i) => (
+          {["efficiency", "intensity", "dust"].map((key, i) => (
             <motion.div
               className="col-10 col-sm-6 col-md-4 col-lg-3 stat-card py-4"
               key={i}
@@ -106,10 +109,10 @@ export default function HistoryDetails() {
                   styles={buildStyles({
                     textColor: "#00ffcc",
                     pathColor:
-                      key === "dust"
-                        ? "#ff0066"
-                        : key === "efficiency"
+                      key === "efficiency"
                         ? "#00ffcc"
+                        : key === "dust"
+                        ? "#ff4444"
                         : "#ffaa00",
                     trailColor: "#222",
                   })}
@@ -119,7 +122,7 @@ export default function HistoryDetails() {
           ))}
         </div>
 
-        {/* 🧠 Suggestion Box */}
+        {/* 💬 Suggestion Box */}
         <motion.div
           className="suggestion-box mx-auto mb-5"
           animate={{ opacity: [1, 0.4, 1] }}
@@ -150,9 +153,6 @@ export default function HistoryDetails() {
           🕓 Recorded at: {new Date(record.timestamp).toLocaleString()}
         </motion.p>
 
-
-
-        
         {/* 🔙 Back Button */}
         <motion.button
           onClick={() => navigate(-1)}

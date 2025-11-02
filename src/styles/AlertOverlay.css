@@ -1,0 +1,80 @@
+/* src/styles/AlertOverlay.css */
+
+.alert-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75vw;
+  height: 75vh;
+  background: radial-gradient(circle at center, rgba(60, 0, 0, 0.95), rgba(10, 0, 0, 0.9));
+  border: 2px solid rgba(255, 0, 0, 0.6);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.9);
+  z-index: 9999;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.alert-canvas {
+  position: absolute !important;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.alert-content {
+  z-index: 5;
+  color: #fff;
+  text-shadow: 0 0 20px red;
+}
+
+.glow-text {
+  color: #ff5555;
+  font-weight: 700;
+  font-size: 1.8rem;
+  animation: glowBlink 1s infinite alternate;
+}
+
+.danger-icon {
+  font-size: 5rem;
+  color: #ff0000;
+  filter: drop-shadow(0 0 25px red);
+}
+
+.stop-btn {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.stop-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px red;
+}
+
+@keyframes glowBlink {
+  from {
+    text-shadow: 0 0 20px red;
+  }
+  to {
+    text-shadow: 0 0 40px #ff3333;
+  }
+}
+
+/* 📱 Responsiveness */
+@media (max-width: 768px) {
+  .alert-overlay {
+    width: 90vw;
+    height: 60vh;
+  }
+  .alert-message {
+    font-size: 1.3rem;
+  }
+  .danger-icon {
+    font-size: 4rem;
+  }
+}
